@@ -165,19 +165,7 @@ ai-legal-claude/
 
 ---
 
-## Uninstall
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/ai-legal-claude/main/uninstall.sh | bash
-```
-
-Or run locally:
-
-```bash
-./uninstall.sh
-```
-
----
 
 ## Disclaimer
 
