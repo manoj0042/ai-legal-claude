@@ -26,10 +26,10 @@
 
 ---
 
-## Quick Start
+## ## Quick Start — Linux / Mac
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/ai-legal-claude/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/manoj0042/ai-legal-claude/main/install.sh | bash
 ```
 
 That's it. One command installs all 14 skills, 5 agents, and the PDF generation scripts.
