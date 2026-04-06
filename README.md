@@ -167,19 +167,4 @@ ai-legal-claude/
 
 
 
-## Disclaimer
 
-This tool is for educational and informational purposes only. It does **not** provide legal advice and should **not** be used as a substitute for consultation with a licensed attorney. Always have a qualified lawyer review any contract before signing.
-
----
-
-<p align="center">
-  <strong>Part of the Claude Code Skills Series</strong><br>
-  <a href="https://github.com/zubair-trabzada/ai-marketing-claude">AI Marketing Suite</a> ·
-  <a href="https://github.com/zubair-trabzada/ai-sales-team-claude">AI Sales Team</a> ·
-  <strong>AI Legal Assistant</strong>
-</p>
-
-<p align="center">
-  <a href="https://www.skool.com/aiworkshop">🎓 Learn How to Sell Claude Code Services to Real Businesses</a>
-</p>
