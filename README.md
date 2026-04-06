@@ -30,21 +30,26 @@
 
 How to Connect Claude Cowork with a GitHub Repository
 
-Step-by-Step Manual Installation Guide
+Step-by-Step Installation Guide
  
 1.  Introduction
+
 This guide explains how to manually connect Claude Cowork with a GitHub repository to install custom AI skills and agents on a Windows computer. It covers everything from prerequisites to running your first legal command — no prior coding experience required.
 
 1.1  What is Cowork?
+
 Claude Cowork is a desktop AI tool that lets you automate file and task management. It runs inside the Claude Desktop app and gives you an AI assistant that can read files, run code, browse the web, and interact with external services like GitHub.
 
 1.2  What is a GitHub Repository?
+
 A GitHub repository (or “repo”) is an online folder where code and files are stored and shared. In this guide, the repository https://github.com/manoj0042/ai-legal-claude contains 14 pre-built AI skills specifically designed for legal work, such as contract review, NDA drafting, and risk analysis.
 
 1.3  What Will Be Installed?
+
 After following this guide, you will have the following installed on your Windows computer:
 
 Component	Details
+
 14 Legal Skills	Contract review, risk analysis, NDA generator, compliance checker, PDF reports, and more
 5 AI Agents	Specialised agents for clauses, risks, compliance, terms, and recommendations
 Python Scripts	Scripts for generating professional PDF reports
@@ -53,6 +58,7 @@ reportlab	Python library required for PDF report generation
 
  
 2.  Prerequisites
+
 Before you begin, make sure the following are installed and set up on your Windows computer.
 
 2.1  Required Software
@@ -67,35 +73,45 @@ GitHub MCP Connector	Lets Cowork read GitHub repos	Added via Cowork Plugin setti
 
  
 3.  Overview of the Process
+
 The installation involves 7 main steps. Each step is explained in detail in Section 4.
 
 STEP 1	Enable the GitHub MCP Connector in Cowork
+
 This gives Cowork the ability to read files from any GitHub repository.
 
 STEP 2	Share the GitHub Repository URL with Claude
+
 Tell Claude which repo contains the skills you want to install.
 
 STEP 3	Claude Reads and Understands the Repo
+
 Claude uses the GitHub connector to browse the repo structure and read the installer script.
 
 STEP 4	Claude Downloads and Packages the Files
+
 Claude clones the repo in its sandbox and copies all skills, agents, and scripts into your Cowork outputs folder.
 
 STEP 5	Claude Creates a Windows Installer
+
 Claude generates an INSTALL-WINDOWS.bat file tailored for your Windows machine.
 
 STEP 6	You Run the Installer
 You navigate to the outputs folder in File Explorer and double-click the batch file.
 
 STEP 7	Test the Skills in Claude Code
+
 Open Claude Code and run your first /legal command to confirm everything works.
 
  
 4.  Detailed Step-by-Step Instructions
+
 Step 1  —  Enable the GitHub MCP Connector
+
 The GitHub MCP (Model Context Protocol) connector is what allows Cowork to read files from GitHub without you needing to log in or download anything manually.
 
 How to enable it:
+
 1.	Open the Claude Desktop app on your Windows computer.
 2.	Click on your profile icon or Settings in the top-left or bottom-left corner.
 3.	Navigate to Plugins or Connectors in the settings menu.
@@ -107,15 +123,19 @@ How to enable it:
 💡	Once the GitHub connector is enabled, Claude can read any public GitHub repository directly. For private repos, you will need to authenticate with a GitHub Personal Access Token.
 
 Step 2  —  Share the GitHub Repository URL with Claude
+
 Open a new Cowork conversation and give Claude the GitHub URL of the repository that contains the skills you want to install.
 
 Example message to type in Cowork:
+
 Connect my Claude Code to GitHub repo https://github.com/manoj0042/ai-legal-claude/tree/main to use the plugins and skills here
 
 Claude will then use the GitHub connector to browse the repository and identify what needs to be installed.
 
 Step 3  —  Claude Reads the Repository
+
 Once given the URL, Claude automatically:
+
 •	Connects to GitHub using the MCP connector
 •	Browses the top-level folder structure of the repository
 •	Reads key files such as install.sh and README.md to understand what the repo contains
@@ -125,9 +145,11 @@ Once given the URL, Claude automatically:
 You do not need to do anything during this step. Claude handles it entirely on its own.
 
 Step 4  —  Claude Downloads and Packages the Files
+
 Claude uses its built-in Linux sandbox to clone the repository and package everything for your machine.
 
 What Claude does internally:
+
 8.	Runs   git clone https://github.com/manoj0042/ai-legal-claude.git   in its Linux sandbox
 9.	Copies all 14 skill SKILL.md files into an ai-legal-install/skills/ folder
 10.	Copies all 5 agent .md files into an ai-legal-install/agents/ folder
@@ -138,9 +160,11 @@ What Claude does internally:
 🔗	The Cowork outputs folder is a special shared bridge between Claude’s Linux sandbox and your Windows computer. Any file Claude saves there appears directly on your PC.
 
 Step 5  —  Claude Creates a Windows Installer
+
 Because the GitHub repo’s original install.sh is a bash script (for Mac/Linux), Claude detects that your machine is Windows and automatically creates a Windows-compatible batch file instead.
 
 The INSTALL-WINDOWS.bat file that Claude creates:
+
 •	Uses %USERPROFILE%\.claude\ as the installation destination (your Windows Claude folder)
 •	Creates the necessary skills\ and agents\ sub-folders automatically
 •	Copies all 14 skills and 5 agents using Windows xcopy commands
@@ -150,9 +174,11 @@ The INSTALL-WINDOWS.bat file that Claude creates:
 
  
 Step 6  —  Run the Installer
+
 This is the only step where you need to take action on your Windows computer.
 
 6.1  Find the Outputs Folder
+
 The outputs folder is located deep inside your AppData folder. Paste the path below into the File Explorer address bar and press Enter:
 
 C:\Users\YourUsername\AppData\Roaming\Claude\local-agent-mode-sessions\
@@ -162,6 +188,7 @@ Replace YourUsername with your actual Windows username (e.g. Manoj42Law). Inside
 💡	If you are unsure of the exact session folder path, ask Claude in Cowork: “What is the full Windows path to my outputs folder?”  Claude will give you the exact path to copy.
 
 6.2  Run the Batch File
+
 14.	Open File Explorer and navigate to the ai-legal-install folder.
 15.	You will see two files and two folders: agents\, skills\, install.sh, and INSTALL-WINDOWS.bat
 16.	Right-click on INSTALL-WINDOWS.bat
@@ -173,17 +200,21 @@ Replace YourUsername with your actual Windows username (e.g. Manoj42Law). Inside
 ⚠️	Running as administrator ensures the batch file has permission to create folders inside your user profile. If you see a “Windows protected your PC” warning, click More info and then Run anyway — this is expected for unsigned batch files.
 
 Step 7  —  Test the Skills in Claude Code
+
 Now that everything is installed, it’s time to test the skills.
 
 7.1  Open Claude Code
+
 21.	Press Windows key + S and type Claude Code.
 22.	Click the Claude Code application to open it.
 23.	Alternatively, open Command Prompt or PowerShell and type: claude
 
 7.2  Run Your First Legal Skill
+
 Navigate to the folder where your contract file is located, then type one of the commands below:
 
 Command	What It Does
+
 /legal review <file>	Full 5-agent contract review with detailed analysis
 /legal risks <file>	Identifies risky or one-sided clauses in a contract
 /legal plain <file>	Translates legal language into plain English
@@ -199,6 +230,7 @@ Command	What It Does
 /legal report-pdf	Exports the last analysis as a professional PDF
 
 7.3  Example Usage
+
 To review a contract PDF stored in your Documents folder:
 cd Documents
 /legal review MyContract.pdf
@@ -207,20 +239,24 @@ Claude will run 5 specialist agents across your contract and produce a comprehen
 
  
 5.  How It Works Under the Hood
+
 Understanding the technology behind this process helps you troubleshoot issues and adapt the method for other GitHub repositories.
 
 5.1  The Four Key Components
 
 Component	Role
+
 GitHub MCP Connector	Allows Claude to read any GitHub repository directly via API, without you needing to download or clone anything manually.
 Claude’s Linux Sandbox	A temporary Linux computer Claude has access to. It runs git clone, pip install, and file copy commands to prepare your installation package.
 Cowork Outputs Folder	A special shared folder that acts as a bridge between Claude’s Linux sandbox and your Windows PC. Files saved here by Claude appear instantly on your computer.
 Windows Batch File	A .bat script that Claude generates specifically for Windows. It uses standard Windows commands (mkdir, xcopy, pip) to install files into the correct Claude Code directories.
 
 5.2  Where Files Are Installed
+
 The batch file installs everything into your Windows user profile’s .claude folder:
 
 Windows Path	Contents
+
 C:\Users\YourName\.claude\skills\	All 14 legal skill SKILL.md files
 C:\Users\YourName\.claude\skills\legal\scripts\	Python scripts for PDF generation
 C:\Users\YourName\.claude\skills\legal\templates\	Contract review templates
@@ -238,6 +274,7 @@ GitHub connector not available	Plugin not installed in Cowork	Go to Settings > P
 PDF report fails to generate	reportlab not installed	Open PowerShell and run: pip install reportlab
 
 6.2  Verify Your Installation
+
 To check that all skills are installed correctly, open PowerShell and run:
 dir %USERPROFILE%\.claude\skills
 
@@ -248,9 +285,11 @@ A version number (e.g. 4.4.10) confirms reportlab is working correctly.
 
  
 7.  Applying This Method to Other Repositories
+
 The same process works for any GitHub repository that contains Claude Code skills or agents. Simply change the GitHub URL in Step 2 and follow the same steps.
 
 For best results, the repository should contain:
+
 •	A skills/ folder with SKILL.md files for each skill
 •	An agents/ folder with agent .md files
 •	An install script (install.sh for Linux/Mac or a .bat file for Windows)
@@ -259,7 +298,9 @@ For best results, the repository should contain:
 💡	Claude is smart enough to adapt. Even if the repo doesn’t have a Windows batch file, Claude will read the bash install script and create an equivalent Windows version automatically.
 
 8.  Summary
+
 You have now successfully:
+
 •	Connected Claude Cowork to a GitHub repository using the GitHub MCP connector
 •	Used Claude’s Linux sandbox to clone and package the repository files
 •	Transferred files to your Windows machine via the Cowork outputs folder
